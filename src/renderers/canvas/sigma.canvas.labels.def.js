@@ -17,6 +17,7 @@
    */
   sigma.canvas.labels.def = function(node, context, settings) {
     var fontSize,
+        fontStyle = node['fontStyle'] || settings('fontStyle'),
         prefix = settings('prefix') || '',
         size = node[prefix + 'size'],
         labelWidth = 0,
@@ -41,8 +42,7 @@
       settings('defaultLabelSize') :
       settings('labelSizeRatio') * size;
 
-    context.font = (settings('fontStyle') ? settings('fontStyle') + ' ' : '') +
-      fontSize + 'px ' + settings('font');
+    context.font = (fontStyle ? fontStyle + ' ' : '') +  fontSize + 'px ' + settings('font');
     context.fillStyle = (settings('labelColor') === 'node') ?
       (node.color || settings('defaultNodeColor')) :
       settings('defaultLabelColor');

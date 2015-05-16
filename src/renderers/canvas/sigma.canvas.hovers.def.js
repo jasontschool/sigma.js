@@ -14,7 +14,6 @@
    * @param  {CanvasRenderingContext2D} context  The canvas context.
    * @param  {configurable}             settings The settings function.
    */
-   //TODO temp override of def.
   sigma.canvas.hovers.def = function(node, context, settings) {
     var x,
         y,
@@ -22,7 +21,7 @@
         h,
         e,
         v,
-        fontStyle = settings('hoverFontStyle') || settings('fontStyle'),
+        fontStyle = node['hoverFontStyle'] || settings('hoverFontStyle') || node['fontStyle'] || settings('fontStyle'),
         prefix = settings('prefix') || '',
         size = node[prefix + 'size'],
         fontSize = (settings('labelSize') === 'fixed') ?
